@@ -3,36 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Poker training</title>
-	<style>
-		.table{
-			display: grid;
-			grid-template-columns: repeat(5, 1fr);
-		}
-		.card {
-			border: 0.5px solid;
-			border-radius: 5px;
-			display: grid;
-			height: 100px;
-			width: 60px;
-			grid-template-columns: repeat(2, 1fr);
-			grid-auto-rows: minmax(10px, auto);
-
-		}	
-		.suit-top {
-			grid-column: 1;
-			grid-row: 1;
-			text-align: left;
-		}
-		.suit-bottom{
-			grid-column: 2;
-			grid-row: 3;
-			text-align: left;
-			transform: rotate(0.5turn); 
-		}
-		.red{
-			color:#FF0000
-		}
-	</style>
+  <link rel="stylesheet" href="static/style.css" />
 </head>
 
 <body onload="createDeck()" >
@@ -93,39 +64,6 @@
 			<div class="suit-bottom" >♠</div>
 		</div>
 	</div>
-
-	<script>
-		function createCard( name ) {
-          let card = document.createElement( "div" );
-  	  		card.classList.add("card");
-
-  	  		let topSuit = document.createElement("div");
-    			let bottomSuit = document.createElement("div");
-    			topSuit.innerText = name;
-          bottomSuit.innerText = name;
-    			topSuit.classList.add("suit-top");
-    			bottomSuit.classList.add("suit-bottom");
-          if( name.includes("♥") ||  name.includes("♦") ){
-    			  topSuit.classList.add("red");
-    			  bottomSuit.classList.add("red");
-          }
-    			card.appendChild(topSuit);
-    			card.appendChild(bottomSuit);
-    			document.body.appendChild(card);
-		}
-		function createDeck(){
-      let suits = [ "♠", "♥", "♣", "♦"];
-      let ranks = [ "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
-      let deck = [];
-      for( let s = 0; s < suits.length; s++ ){
-			  for( let i = 0; i < ranks.length; i++ ){
-          deck.push(suits[s] + ranks[i] );
-          createCard( suits[s] + ranks[i] );
-			  }
-      }
-		}
-
-	</script>
 
 </body>
 </html>
